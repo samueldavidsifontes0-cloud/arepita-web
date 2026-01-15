@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Arepita ProMax</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #000000;
+    color: white;
+}
+
+h1 {
+    color: #ff6f61;
+}
+
+input {
+    width: 300px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+}
+
+button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #61dafb;
+    color: #000000;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+</style>
+</head>
+<body>
+
+<h1>Arepita ProMax</h1>
+<p>Escribe la dirección de la página que quieras visitar o una búsqueda:</p>
+
+<input type="text" id="url" placeholder="Arepita ProMax">
+<button onclick="ir()">Ir</button>
+
+<script>
+// Abrir DuckDuckGo automáticamente al cargar
+window.onload = function() {
+    window.open("https://duckduckgo.com", "_blank");
+};
+
+function ir() {
+    let input = document.getElementById('url').value.trim();
+    if (!input) return;
+
+    // Si empieza con http o https, abrir como URL
+    if (input.startsWith('http')) {
+        window.open(input, "_blank");
+    } else {
+        // Si no, hacer búsqueda en DuckDuckGo
+        let searchUrl = "https://duckduckgo.com/?q=" + encodeURIComponent(input);
+        window.open(searchUrl, "_blank");
+    }
+}
+</script>
+
+</body>
+</html>
